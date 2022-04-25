@@ -1,4 +1,5 @@
 #!/bin/bash
+echo Compiling $PYFILE ...
 python -m py_compile $PYFILE
 mv __pycache__/* ./"${PYFILE}c"
 rm -rf __pycache__
