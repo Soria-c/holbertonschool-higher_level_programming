@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-from re import U
-
-
 def uppercase(string):
     str1 = ""
     for i in string:
