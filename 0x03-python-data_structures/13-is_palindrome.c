@@ -12,12 +12,14 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp1, *tmp2;
 
 	if (!(*head))
-        return(1);
-    tmp1 = *head;
+		return (1);
+	if (!(*head)->next)
+		return (1);
+	tmp1 = *head;
 	for (; tmp1; tmp1 = tmp1->next)
 	{
 		tmp2 = tmp1;
-		for (; tmp2->next->next; tmp2 = tmp2->next)
+		for (; tmp2 && tmp2->next->next; tmp2 = tmp2->next)
 			continue;
 		if (tmp1->n != tmp2->next->n)
 			return (0);
