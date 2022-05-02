@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	if (!(*head))
 		return (1);
 	if (!(*head)->next)
-		return (1);
+		return (0);
 	tmp1 = *head;
 	for (; tmp1; tmp1 = tmp1->next)
 	{
