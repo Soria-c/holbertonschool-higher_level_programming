@@ -25,7 +25,7 @@ int is_palindrome(listint_t **head)
  */
 int recursion(listint_t **head, listint_t *node)
 {
-	if (node->next && recursion(head, node->next) && (*head)->n != node->n)
+	if (node->next && (!recursion(head, node->next) || ((*head)->n != node->n)))
 		return (0);
 	(*head) = (*head)->next;
 	return (1);
