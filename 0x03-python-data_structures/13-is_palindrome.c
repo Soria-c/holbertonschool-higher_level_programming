@@ -2,31 +2,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int recursion(listint_t **save, listint_t *node);
 /**
- * is_palindrome - Checkes is a linked list is palindrome
+ * is_palindrome - Checks is a linked list is palindrome
  * @head: address of linked list
  * Return: 1 if it is palindrome, 0 otherwise
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp1, *tmp2;
-
-	if (!head)
-		return (1);
-	if (!(*head))
+	if (!head || !(*head))
 		return (1);
 	if (!(*head)->next)
 		return (1);
-	tmp1 = *head;
-	for (; tmp1; tmp1 = tmp1->next)
-	{
-		tmp2 = tmp1;
-		for (; tmp2 && tmp2->next->next; tmp2 = tmp2->next)
-			continue;
-		if (tmp1->n != tmp2->next->n)
-			return (0);
-		free(tmp2->next);
-		tmp2->next = NULL;
-	}
+	return (recursion(head, *head));
+}
+
+/**
+ * recursion -  Checks if a linekd list is palindrome
+ * @head: address of linked list
+ * @node: address of a node
+ * Return: 1 if palindrome, 0 otherwise
+ */
+int recursion(listint_t **head, listint_t *node)
+{
+	if (node->next && recursion(head, node->next) && (*head)->n != node->n)
+		return (0);
+	(*head) = (*head)->next;
 	return (1);
 }
