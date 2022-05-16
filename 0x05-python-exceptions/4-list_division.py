@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-from ast import Index
-
-
 def list_division(my_list_1, my_list_2, list_length):
     """Divides elements of two lists"""
     result = []
