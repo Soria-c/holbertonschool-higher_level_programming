@@ -69,8 +69,7 @@ class Square:
     def __str__(self):
         """Custom implementation of the magic method __str__"""
         if not (self.__size):
-            print()
-            return
+            return ""
         for i in range(self.__position[1]):
             print()
         s = self.__size
