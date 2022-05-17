@@ -2,9 +2,6 @@
 """In this module a new class Square is defined"""
 
 
-from numpy import unsignedinteger
-
-
 class Square:
     """ Class to create an square object"""
     def __init__(self, size=0, position=(0, 0)):
