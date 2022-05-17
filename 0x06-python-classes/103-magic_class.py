@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """In this module a class MagicClass is defined"""
+import math
 
 
 class MagicClass:
@@ -13,7 +14,7 @@ class MagicClass:
 
     def area(self):
         """Returns the area of a given MagicClass (circle) object"""
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2) * math.pi
 
     def circumference(self):
         """Returns the perimeter of a given MagicClass (circle) object"""
