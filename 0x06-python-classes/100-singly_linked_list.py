@@ -57,18 +57,12 @@ class SinglyLinkedList:
         if (new.data < self.__head.data):
             new.next_node = self.__head
             self.__head = new
-        else:
-            if (new.next_node):
-                self.__head.next_node = new
-                return
-            tmp = self.__head
-            while(tmp.next_node and (new.data > tmp.next_node.data)):
-                tmp = tmp.next_node
-            if not(tmp.next_node):
-                tmp.next_node = new
-                return
-            new.next_node = tmp.next_node
-            tmp.next_node = new
+            return
+        tmp = self.__head
+        while(tmp.next_node and (new.data > tmp.next_node.data)):
+            tmp = tmp.next_node
+        new.next_node = tmp.next_node
+        tmp.next_node = new
 
     def __str__(self):
         """Custom implementation of the __str__ magic method"""
