@@ -49,6 +49,7 @@ class Rectangle:
         """Instance method that returns the area"""
         return self.__width * self.__height
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Instance method to compare two Rectangle objects"""
         if not(isinstance(rect_1, Rectangle)):
