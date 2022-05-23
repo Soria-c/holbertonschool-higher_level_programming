@@ -12,7 +12,6 @@ class Rectangle:
         """Method to initialize a new Rectangle object"""
         self.errors(width, "width")
         self.errors(height, "height")
-        
 
         Rectangle.number_of_instances += 1
         self.__height = height
