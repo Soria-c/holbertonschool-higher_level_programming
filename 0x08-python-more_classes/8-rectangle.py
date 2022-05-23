@@ -2,9 +2,6 @@
 """In this module a class Rectangle is defined"""
 
 
-from numpy import isin
-
-
 class Rectangle:
     """Class to create a Rectangle object"""
 
