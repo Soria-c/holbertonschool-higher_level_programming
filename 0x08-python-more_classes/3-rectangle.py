@@ -7,8 +7,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Method to initialize a new Rectangle object"""
-        self.error_h(height)
-        self.error_w(width)
+        self.errors(height, "height")
+        self.errors(width, "width")
 
         self.__height = height
         self.__width = width
@@ -26,13 +26,13 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Setter method for height"""
-        self.error_h(value)
+        self.errors(value, "height")
         self.__height = value
 
     @width.setter
     def width(self, value):
         """Setter method for width"""
-        self.error_w(value)
+        self.errors(value, "width")
         self.__width = value
 
     def perimeter(self):
@@ -52,17 +52,10 @@ class Rectangle:
         return "\n".join([self.__width * '#' for i in range(self.__height)])
 
     @classmethod
-    def error_w(cls, w):
+    def errors(cls, v, name):
         """Class method to check for errors"""
-        if not isinstance(w, int):
-            raise TypeError("width must be an integer")
-        if w < 0:
-            raise ValueError("width must be >= 0")
+        if not isinstance(v, int):
+            raise TypeError(f"{name} must be an integer")
+        if v < 0:
+            raise ValueError(f"{name} must be >= 0")
 
-    @classmethod
-    def error_h(cls, h):
-        """Class method to check for errors"""
-        if not isinstance(h, int):
-            raise TypeError("height must be an integer")
-        if h < 0:
-            raise ValueError("height must be >= 0")
