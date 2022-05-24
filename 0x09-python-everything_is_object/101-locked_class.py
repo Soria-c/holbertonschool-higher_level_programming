@@ -9,5 +9,5 @@ class LockedClass(object):
         if name == "first_name":
             self.__dict__[name] = value
         else:
-            n = "LockedClass"
+            n = self.__class__.__name__
             raise AttributeError(f"'{n}' object has no attribute '{name}'")
