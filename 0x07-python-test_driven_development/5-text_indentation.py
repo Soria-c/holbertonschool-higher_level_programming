@@ -3,9 +3,9 @@
 
 
 def text_indentation(text):
-    """Prints a text with 2 new lines after each of these characters: ., ? and :"""
+    """Prints a text with 2 new lines after each of these characters . ? :"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     for x in ".:?":
         text = f"{x}\n\n".join([i.strip() for i in text.split(x)])
-    print(text,end="")
+    print(text, end="")
