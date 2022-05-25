@@ -1,0 +1,57 @@
+
+=========================
+Tests for 0-add_integer.py
+==========================
+
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(2, 2)
+4
+
+>>> add_integer(2.9, 5)
+7
+
+>>> add_integer(5, 2.9)
+7
+
+>>> add_integer(-243, 100)
+-143
+
+>>> add_integer("asd", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(2, "asd")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer((1,), 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(1, (1,))
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(["a", "b"], 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, ["a", "b"])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(["a", "b"], 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer({}, 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(43, {})
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(0)
+98
