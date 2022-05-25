@@ -39,3 +39,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided([1, 2, 3], 3)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided("string", 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
