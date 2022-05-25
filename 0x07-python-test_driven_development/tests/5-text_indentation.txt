@@ -1,0 +1,8 @@
+
+=========================
+Tests for 4-print_square.py
+==========================
+
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation
