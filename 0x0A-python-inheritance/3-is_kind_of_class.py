@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""In this module the function is_same_class is defined"""
+"""In this module the function is_kind_of_class is defined"""
 
 
 def is_kind_of_class(obj, a_class):
