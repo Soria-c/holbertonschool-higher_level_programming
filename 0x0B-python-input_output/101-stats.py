@@ -30,3 +30,4 @@ for i in stdin:
     if count == 10:
         print_data()
         count = 0
+print_data()
