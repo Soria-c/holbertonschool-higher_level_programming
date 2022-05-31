@@ -22,7 +22,6 @@ def print_data(signal=None, frame=None):
     if (signal and frame):
         exit()
 
-signal.signal(signal.SIGINT, print_data)
 
 for i in stdin:
     count += 1
