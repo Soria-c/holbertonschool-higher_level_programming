@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import json
-from sys import argv
 """
 This module defines a script which takes argvs
 and appends them to a python list, then writes
@@ -12,6 +10,8 @@ The functions:
     load_from_json_file()
     are also defined
 """
+import json
+from sys import argv
 
 
 def save_to_json_file(my_obj, filename):
