@@ -3,7 +3,7 @@
 This module defines the functions:
     print_data()
 """
-from sys import stdin
+from sys import stdin, exit
 import signal
 
 
@@ -19,6 +19,8 @@ def print_data(singal=None, frame=None):
     for j, k in status_code.items():
         if (k):
             print(f"{j}: {k}")
+    if (signal and frame):
+        exit()
 
 
 signal.signal(signal.SIGINT, print_data)
