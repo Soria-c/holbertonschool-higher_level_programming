@@ -28,8 +28,9 @@ for i in stdin:
     line = i.strip("\n").split(" ")
     total_size += int(line[-1])
     status_code[line[-2]] += 1
+    signal.signal(signal.SIGINT, print_data)
     if count == 10:
         print_data()
         count = 0
-signal.signal(signal.SIGINT, print_data)
 print_data()
+
