@@ -23,7 +23,6 @@ def print_data(singal=None, frame=None):
         exit()
 
 
-signal.signal(signal.SIGINT, print_data)
 for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
@@ -32,4 +31,5 @@ for i in stdin:
     if count == 10:
         print_data()
         count = 0
+signal.signal(signal.SIGINT, print_data)
 print_data()
