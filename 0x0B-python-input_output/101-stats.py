@@ -23,10 +23,10 @@ def print_data(singal=None, frame=None):
 
 signal.signal(signal.SIGINT, print_data)
 for i in stdin:
+    count += 1
     line = i.strip("\n").split(" ")
     total_size += int(line[-1])
     status_code[line[-2]] += 1
     if count == 10:
         print_data()
         count = 0
-    count += 1
