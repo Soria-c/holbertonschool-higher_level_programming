@@ -20,18 +20,17 @@ def print_data(signal=None, frame=None):
         if (k):
             print(f"{j}: {k}")
     if (signal and frame):
-        exit()
+        raise KeyboardInterrupt
 
 
-try:
-    for i in stdin:
-        count += 1
-        line = i.strip("\n").split(" ")
-        total_size += int(line[-1])
-        status_code[line[-2]] += 1
-        if count == 10:
-            print_data()
-            count = 0
-    print_data()
-except KeyboardInterrupt:
-    print_data()
+signal.signal(signal.SIGINT, print_data)
+
+for i in stdin:
+    count += 1
+    line = i.strip("\n").split(" ")
+    total_size += int(line[-1])
+    status_code[line[-2]] += 1
+    if count == 10:
+        print_data()
+        count = 0
+print_data()
