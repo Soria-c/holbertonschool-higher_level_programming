@@ -78,3 +78,7 @@ TypeError: name must be an integer
 >>> bg.integer_validator("name", bytearray(b"name"))
 Traceback (most recent call last):
 TypeError: name must be an integer
+
+>>> m = __import__("7-base_geometry").__doc__
+>>> not m
+False
