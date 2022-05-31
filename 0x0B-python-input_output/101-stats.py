@@ -13,7 +13,7 @@ count = 0
 total_size = 0
 
 
-def print_data(singal=None, frame=None):
+def print_data(signal=None, frame=None):
     """Prints statistics data"""
     print(f"File size: {total_size}")
     for j, k in status_code.items():
@@ -22,15 +22,14 @@ def print_data(singal=None, frame=None):
     if (signal and frame):
         exit()
 
+signal.signal(signal.SIGINT, print_data)
 
 for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
     total_size += int(line[-1])
     status_code[line[-2]] += 1
-    signal.signal(signal.SIGINT, print_data)
     if count == 10:
         print_data()
         count = 0
 print_data()
-
