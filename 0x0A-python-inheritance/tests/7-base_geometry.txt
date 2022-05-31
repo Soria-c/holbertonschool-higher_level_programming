@@ -73,4 +73,4 @@ TypeError: name must be an integer
 TypeError: set must be an integer
 >>> b.integer_validator("name", frozenset(["a", "b"]))
 Traceback (most recent call last):
-TypeError: frozenset must be an integer
+TypeError: name must be an integer
