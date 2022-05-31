@@ -16,7 +16,6 @@ class Student:
 
     def to_json(self, attrs=None):
         """Returns a dictionary for self attributes"""
-        if (not attrs or not isinstance(attrs, list) or
-                [i for i in attrs if not isinstance(i, str)]):
+        if (not attrs or [i for i in attrs if not isinstance(i, str)]):
             return self.__dict__
         return {i: j for i, j in self.__dict__.items() if i in attrs}
