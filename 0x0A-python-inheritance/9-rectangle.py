@@ -20,4 +20,5 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """Custom implementation of the __str__ magic method"""
-        return f"[{self.__class__.__name__}] {self.__width}/{self.__height}"
+        """ return f"[{self.__class__.__name__}] {self.__width}/{self.__height}" """
+        return f"[Rectangle] {self.__width}/{self.__height}"

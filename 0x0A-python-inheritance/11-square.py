@@ -9,5 +9,5 @@ class Square(Rectangle):
         """Implementation of the __init__ magic method"""
         super().__init__(size, size)
 
-#    def __str__(self):
-    #    return f'[Square] {self._Rectangle__width}/{self._Rectangle__height}'
+    def __str__(self):
+       return f'[Square] {self._Rectangle__width}/{self._Rectangle__height}'
