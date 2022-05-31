@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """In this module the function:
-    write()
+    write_file()
     is defined
 """
 
