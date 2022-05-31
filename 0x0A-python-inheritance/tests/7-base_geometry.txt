@@ -71,6 +71,6 @@ Traceback (most recent call last):
 TypeError: name must be an integer
 
 TypeError: set must be an integer
->>> b.integer_validator("name", frozenset(["a", "b"]))
+>>> bg.integer_validator("name", frozenset(["a", "b"]))
 Traceback (most recent call last):
 TypeError: name must be an integer
