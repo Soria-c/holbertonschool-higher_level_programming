@@ -30,6 +30,7 @@ for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
     if not line[-1].isdigit():
+        count -= 1
         continue
     total_size += int(line[-1])
     status_code[line[-2]] += 1
