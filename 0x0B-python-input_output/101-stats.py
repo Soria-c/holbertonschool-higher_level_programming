@@ -29,7 +29,7 @@ for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
     print(len(line))
-    if (len(line) < 7):
+    if (len(line) == 1):
         continue
     total_size += int(line[-1])
     if line[-2] in status_code:
