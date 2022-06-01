@@ -28,7 +28,6 @@ signal.signal(signal.SIGINT, print_data)
 for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
-    print(len(line))
     if (len(line) == 1):
         continue
     total_size += int(line[-1])
