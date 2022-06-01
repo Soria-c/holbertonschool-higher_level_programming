@@ -19,7 +19,8 @@ def print_data(signal=None, frame=None):
     for j, k in status_code.items():
         if (k):
             print(f"{j}: {k}")
-
+    if (signal and frame):
+        exit()
 
 
 signal.signal(signal.SIGINT, print_data)
