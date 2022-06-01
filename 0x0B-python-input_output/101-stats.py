@@ -3,8 +3,7 @@
 This module defines the functions:
     print_data()
 """
-from sys import stdin, exit
-import signal
+from sys import stdin
 
 
 status_code = {"200": 0, "301": 0, "400": 0, "401": 0,
@@ -13,24 +12,23 @@ count = 0
 total_size = 0
 
 
-def print_data(signal=None, frame=None):
+def print_data():
     """Prints statistics data"""
     print(f"File size: {total_size}")
     for j, k in sorted(status_code.items()):
         if (k):
             print(f"{j}: {k}")
-    if (signal and frame):
-        exit(0)
 
 
-signal.signal(signal.SIGINT, print_data)
-
-for i in stdin:
-    count += 1
-    line = i.strip("\n").split(" ")
-    total_size += int(line[-1])
-    status_code[line[-2]] += 1
-    if count == 10:
-        print_data()
-        count = 0
-print_data()
+try:
+    for i in stdin:
+        count += 1
+        line = i.strip("\n").split(" ")
+        total_size += int(line[-1])
+        status_code[line[-2]] += 1
+        if count == 10:
+            print_data()
+            count = 0
+    print_data()
+except KeyboardInterrupt:
+    print_data()
