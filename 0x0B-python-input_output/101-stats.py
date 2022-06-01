@@ -3,7 +3,6 @@
 This module defines the functions:
     print_data()
 """
-from curses.ascii import isalnum
 from sys import stdin, exit
 import signal
 
@@ -29,11 +28,9 @@ signal.signal(signal.SIGINT, print_data)
 for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
-    if not line[-1].isdigit():
-        count -= 1
-        continue
     total_size += int(line[-1])
-    status_code[line[-2]] += 1
+    if line[-2] in status_code:
+        status_code[line[-2]] += 1
     if count == 10:
         print_data()
         count = 0
