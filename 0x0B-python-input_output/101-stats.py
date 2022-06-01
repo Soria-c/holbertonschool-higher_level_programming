@@ -16,11 +16,11 @@ total_size = 0
 def print_data(signal=None, frame=None):
     """Prints statistics data"""
     print(f"File size: {total_size}")
-    for j, k in status_code.items():
+    for j, k in sorted(status_code.items()):
         if (k):
             print(f"{j}: {k}")
     if (signal and frame):
-        exit()
+        exit(0)
 
 
 signal.signal(signal.SIGINT, print_data)
