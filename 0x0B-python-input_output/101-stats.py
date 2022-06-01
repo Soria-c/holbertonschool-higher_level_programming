@@ -29,8 +29,9 @@ signal.signal(signal.SIGINT, print_data)
 for i in stdin:
     count += 1
     line = i.strip("\n").split(" ")
-    if line[-1].isdigit():
-        total_size += int(line[-1])
+    if not line[-1].isdigit():
+        continue
+    total_size += int(line[-1])
     status_code[line[-2]] += 1
     if count == 10:
         print_data()
