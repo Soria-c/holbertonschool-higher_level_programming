@@ -46,11 +46,11 @@ class Rectangle(Base):
                 larg = 5
         if args and args[0]:
             for i in range(larg):
-                self.__setattr__(k[i], args[i])
+                setattr(self, k[i], args[i])
             return
         for k, v in kwargs.items():
             if hasattr(self, k):
-                self.__setattr__(k, v)
+                setattr(self, k, v)
 
     def to_dictionary(self):
         """Returns a dictionary representation of an object"""
