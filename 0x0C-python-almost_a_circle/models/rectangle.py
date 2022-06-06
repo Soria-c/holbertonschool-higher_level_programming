@@ -36,7 +36,7 @@ class Rectangle(Base):
         """Updates the attributes of an object"""
         cl = self.__class__.__name__
         r, i = ["_Rectangle__", "id"]
-        if not args:
+        if not args or not args[0]:
             if (kwargs is None):
                 return
             self.error_check(**kwargs)
@@ -46,8 +46,6 @@ class Rectangle(Base):
                 u["_Rectangle__width"] = kwargs["size"]
                 u["_Rectangle__height"] = kwargs["size"]
             self.__dict__.update(u)
-            return
-        if (args[0] is None):
             return
         if (cl == "Square"):
             val = ["id", "size", "x", "y"]
