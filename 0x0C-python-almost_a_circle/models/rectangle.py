@@ -40,8 +40,9 @@ class Rectangle(Base):
         elif (cl == "Rectangle"):
             k = ["id", "width", "height", "x", "y"]
         larg = len(args)
-        if args:
+        if args and args[0]:
             for i in range(larg):
+                print("ok")
                 self.__setattr__(k[i], args[i])
             return
         for k, v in kwargs.items():
