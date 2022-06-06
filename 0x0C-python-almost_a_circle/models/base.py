@@ -32,12 +32,16 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Creates or overwrites a json file based on an object's attributes"""
+        
         c = cls.__name__
         ls = []
-        for i in list_objs:
-            ls.append(i.to_dictionary())
-        jsn = Base.to_json_string(ls)
         with open(f"{c}.json", mode="w", encoding="utf-8") as file:
+            if (not list_objs):
+                file.write("[]")
+                return
+            for i in list_objs:
+                ls.append(i.to_dictionary())
+            jsn = Base.to_json_string(ls)
             file.write(jsn)
 
     @staticmethod

@@ -35,37 +35,20 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """Updates the attributes of an object"""
         cl = self.__class__.__name__
-        r, i = ["_Rectangle__", "id"]
-        if not args or not args[0]:
-            if (kwargs is None):
-                return
-            va = ["id", "width", "height", "x", "y"]
-            ki = kwargs.items()
-            u = {(r + k if k != i else k): v for k, v in ki if k in va}
-            self.error_check(**kwargs)
-            if ("size" in kwargs):
-                u["_Rectangle__width"] = kwargs["size"]
-                u["_Rectangle__height"] = kwargs["size"]
-            self.__dict__.update(u)
-            return
         if (cl == "Square"):
-            val = ["id", "size", "x", "y"]
+            k = ["id", "size", "x", "y"]
         elif (cl == "Rectangle"):
-            val = ["id", "width", "height", "x", "y"]
-        self.error_check(**{val[i]: args[i] for i in range(len(args))})
-        d = list(self.__dict__.keys())
-        u, j, k = [{}, 0, 0]
-        while j < len(args):
-            if (k == 1 and cl == "Square"):
-                u[d[k]] = args[j]
-                u[d[k + 1]] = args[j]
-                k += 2
-                j += 1
-                continue
-            u[d[k]] = args[j]
-            k += 1
-            j += 1
-        self.__dict__.update(u)
+            k = ["id","width", "height", "x", "y"]
+        larg = len(args)
+        if args:
+            for i in range(larg):
+                self.__setattr__(k[i], args[i])
+            return
+        for k, v in kwargs.items():
+            if hasattr(self, k):
+                self.__setattr__(k, v)
+        
+
 
     def to_dictionary(self):
         """Returns a dictionary representation of an object"""
