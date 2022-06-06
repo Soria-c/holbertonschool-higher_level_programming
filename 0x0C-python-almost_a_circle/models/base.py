@@ -1,6 +1,5 @@
 import json
-from venv import create
-
+import csv
 
 class Base:
     __nb_objects = 0
@@ -52,4 +51,34 @@ class Base:
             input = file.read()
         ls_dct = Base.from_json_string(input)
         return [cls.create(**i) for i in ls_dct]
+    
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        c = cls.__name__
+        l = [i.to_dictionary().values() for i in list_objs]
+        with open(f"{c}.csv", mode="w", encoding="utf-8") as file:
+            csv.writer(file).writerows(l)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        c = cls.__name__
+        l = []
+        bp = []
+        with open(f"{c}.csv", mode="r", encoding="utf-8") as file:
+            input = csv.reader(file)
+            for i in input:
+                l.append(i)
+        if (c == "Rectangle"):
+            bp = ["id", "width", "height", "x", "y"]
+        elif (c == "Square"):
+            bp = ["id", "size", "x", "y"]
+        length = len(bp)
+        instances = []
+        for j in l:    
+            dct = {bp[i]: int(j[i]) for i in range(length)}
+            instances.append(cls.create(**dct))
+        return instances
+        
+
+
     

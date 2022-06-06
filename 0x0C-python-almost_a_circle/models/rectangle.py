@@ -59,6 +59,7 @@ class Rectangle(Base):
             ls = ["height", "width"]
             s2 = dct.items()
             dct = {(k[9:] if c in k else k): v for k, v in s2 if k not in ls}
+            dct = {"id": dct["id"], "size": dct["size"], "x": dct["x"], "y": dct["y"]}
         return dct
 
     def __str__(self):
