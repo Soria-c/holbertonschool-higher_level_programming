@@ -39,9 +39,10 @@ class Rectangle(Base):
         if not args or not args[0]:
             if (kwargs is None):
                 return
-            self.error_check(**kwargs)
+            va = ["id", "width", "height", "x", "y"]
             ki = kwargs.items()
-            u = {(r + k if k != i else k): v for k, v in ki if k != "size"}
+            u = {(r + k if k != i else k): v for k, v in ki if k in va}
+            self.error_check(**kwargs)
             if ("size" in kwargs):
                 u["_Rectangle__width"] = kwargs["size"]
                 u["_Rectangle__height"] = kwargs["size"]
