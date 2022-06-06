@@ -38,7 +38,7 @@ class Rectangle(Base):
         if (cl == "Square"):
             k = ["id", "size", "x", "y"]
         elif (cl == "Rectangle"):
-            k = ["id","width", "height", "x", "y"]
+            k = ["id", "width", "height", "x", "y"]
         larg = len(args)
         if args:
             for i in range(larg):
@@ -47,8 +47,6 @@ class Rectangle(Base):
         for k, v in kwargs.items():
             if hasattr(self, k):
                 self.__setattr__(k, v)
-        
-
 
     def to_dictionary(self):
         """Returns a dictionary representation of an object"""
