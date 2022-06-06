@@ -42,7 +42,6 @@ class Rectangle(Base):
             if ("size" in kwargs):
                 u["_Rectangle__width"] = kwargs["size"]
                 u["_Rectangle__height"] = kwargs["size"]
-            print(u)
             self.__dict__.update(u)
             return
         if (cl == "Square"):
@@ -62,7 +61,6 @@ class Rectangle(Base):
             u[d[k]] = args[j]
             k += 1
             j += 1
-        print(u)
         self.__dict__.update(u)
 
     def to_dictionary(self):
