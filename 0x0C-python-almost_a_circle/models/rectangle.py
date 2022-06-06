@@ -35,11 +35,15 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """Updates the attributes of an object"""
         cl = self.__class__.__name__
+        larg = len(args)
         if (cl == "Square"):
             k = ["id", "size", "x", "y"]
+            if larg > 4:
+                larg = 4
         elif (cl == "Rectangle"):
             k = ["id", "width", "height", "x", "y"]
-        larg = len(args)
+            if larg > 5:
+                larg = 5
         if args and args[0]:
             for i in range(larg):
                 self.__setattr__(k[i], args[i])
