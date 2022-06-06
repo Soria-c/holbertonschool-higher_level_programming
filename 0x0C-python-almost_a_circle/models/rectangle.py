@@ -55,14 +55,11 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Returns a dictionary representation of an object"""
         c = self.__class__.__name__
-        s = self.__dict__.items()
-        dct = {(k[12:] if "Rectangle" in k else k): v for k, v in s}
         if (c == "Square"):
-            ls = ["height"]
-            s2 = dct.items()
-            ky = "width"
-            dct = {("size" if k == ky else k): v for k, v in s2 if k not in ls}
-        return dct
+            return {"id": self.id, "size": self.width, "x": self.x,
+                    "y": self.y}
+        return {"id": self.id, "width": self.width,
+                "height": self.height, "x": self.x, "y": self.y}
 
     def __str__(self):
         """Custom implementation of the __str__ magic method"""
