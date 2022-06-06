@@ -35,16 +35,21 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """Updates the attributes of an object"""
         cl = self.__class__.__name__
-        r, s, i, z = ["_Rectangle__", "_Square__", "id", "size"]
+        r, i = ["_Rectangle__", "id"]
         if not args:
-            u = {(r + k if k != i and z else k): v for k, v in kwargs.items()}
-            if cl == "Square":
-                u = {(s + k if k == z else k): v for k, v in u.items()}
+            self.error_check(**kwargs)
+            u = {(r + k if k != i else k): v for k, v in kwargs.items()}
             if ("size" in kwargs):
                 u["_Rectangle__width"] = kwargs["size"]
                 u["_Rectangle__height"] = kwargs["size"]
+            print(u)
             self.__dict__.update(u)
             return
+        if (cl == "Square"):
+            val = ["id", "size", "x", "y"]
+        elif (cl == "Rectangle"):
+            val = ["id", "width", "height", "x", "y"]
+        self.error_check(**{val[i]: args[i] for i in range(len(args))})
         d = list(self.__dict__.keys())
         u, j, k = [{}, 0, 0]
         while j < len(args):
@@ -57,6 +62,7 @@ class Rectangle(Base):
             u[d[k]] = args[j]
             k += 1
             j += 1
+        print(u)
         self.__dict__.update(u)
 
     def to_dictionary(self):
