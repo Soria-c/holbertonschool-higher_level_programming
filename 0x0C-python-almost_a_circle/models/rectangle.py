@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """This module defines that class Rectangle"""
 
 from models.base import Base

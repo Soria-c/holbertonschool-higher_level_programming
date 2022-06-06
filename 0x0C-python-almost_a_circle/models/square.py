@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 This module defines the classes:
     Square
