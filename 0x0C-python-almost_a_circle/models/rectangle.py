@@ -69,11 +69,9 @@ class Rectangle(Base):
         s = self.__dict__.items()
         dct = {(k[12:] if "Rectangle" in k else k): v for k, v in s}
         if (c == "Square"):
-            ls = ["height", "width"]
+            ls = ["height"]
             s2 = dct.items()
-            dct = {(k[9:] if c in k else k): v for k, v in s2 if k not in ls}
-            dct = {"id": dct["id"], "size": dct["size"],
-                   "x": dct["x"], "y": dct["y"]}
+            dct = {("size" if k == "width" else k): v for k, v in s2 if k not in ls}
         return dct
 
     def __str__(self):
