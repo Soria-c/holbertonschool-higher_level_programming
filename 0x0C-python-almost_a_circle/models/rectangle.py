@@ -62,6 +62,7 @@ class Rectangle(Base):
             u[d[k]] = args[j]
             k += 1
             j += 1
+        print(u)
         self.__dict__.update(u)
 
     def to_dictionary(self):
