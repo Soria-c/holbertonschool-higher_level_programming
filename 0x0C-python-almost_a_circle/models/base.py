@@ -7,6 +7,7 @@ This module defines the classes:
 import json
 import csv
 import turtle
+from os.path import exists
 
 
 class Base:
@@ -65,6 +66,8 @@ class Base:
     def load_from_file(cls):
         """Returns a list of Square or Rectangle object based on a json file"""
         c = cls.__name__
+        if (not exists(f"./{c}.json")):
+            return []
         input = None
         with open(f"{c}.json", mode="r", encoding="utf-8") as file:
             input = file.read()
