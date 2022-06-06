@@ -1,5 +1,6 @@
 import json
 import csv
+import turtle
 
 class Base:
     __nb_objects = 0
@@ -78,6 +79,30 @@ class Base:
             dct = {bp[i]: int(j[i]) for i in range(length)}
             instances.append(cls.create(**dct))
         return instances
+    
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        
+        draw = turtle.Turtle()
+        for i in list_rectangles:
+            draw.goto(i.x, i.y)
+            draw.pendown()
+            for j in range(2):
+                draw.forward(i.width)
+                draw.right(90)
+                draw.forward(i.height)
+                draw.right(90)
+            draw.penup()    
+        for k in list_squares:
+            draw.goto(k.x, k.y)
+            draw.pendown()
+            for v in range(2):
+                draw.forward(k.width)
+                draw.right(90)
+                draw.forward(k.height)
+                draw.right(90)
+            draw.penup()
+        turtle.done()
         
 
 
