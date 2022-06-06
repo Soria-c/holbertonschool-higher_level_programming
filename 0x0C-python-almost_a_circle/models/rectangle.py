@@ -38,10 +38,12 @@ class Rectangle(Base):
         r, i = ["_Rectangle__", "id"]
         if not args:
             self.error_check(**kwargs)
-            u = {(r + k if k != i else k): v for k, v in kwargs.items()}
+            ki = kwargs.items()
+            u = {(r + k if k != i else k): v for k, v in ki if k != "size"}
             if ("size" in kwargs):
                 u["_Rectangle__width"] = kwargs["size"]
                 u["_Rectangle__height"] = kwargs["size"]
+            print(u)
             self.__dict__.update(u)
             return
         if (cl == "Square"):
@@ -71,7 +73,8 @@ class Rectangle(Base):
         if (c == "Square"):
             ls = ["height"]
             s2 = dct.items()
-            dct = {("size" if k == "width" else k): v for k, v in s2 if k not in ls}
+            ky = "width"
+            dct = {("size" if k == ky else k): v for k, v in s2 if k not in ls}
         return dct
 
     def __str__(self):
