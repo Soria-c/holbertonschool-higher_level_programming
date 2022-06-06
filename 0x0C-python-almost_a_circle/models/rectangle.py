@@ -42,7 +42,6 @@ class Rectangle(Base):
         larg = len(args)
         if args and args[0]:
             for i in range(larg):
-                print("ok")
                 self.__setattr__(k[i], args[i])
             return
         for k, v in kwargs.items():
