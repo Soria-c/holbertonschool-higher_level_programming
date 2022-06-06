@@ -37,6 +37,8 @@ class Rectangle(Base):
         cl = self.__class__.__name__
         r, i = ["_Rectangle__", "id"]
         if not args:
+            if (kwargs is None):
+                return
             self.error_check(**kwargs)
             ki = kwargs.items()
             u = {(r + k if k != i else k): v for k, v in ki if k != "size"}
