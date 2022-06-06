@@ -34,6 +34,8 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Updates the attributes of an object"""
+        if (args[0] is None):
+            return
         cl = self.__class__.__name__
         r, i = ["_Rectangle__", "id"]
         if not args:
@@ -62,7 +64,6 @@ class Rectangle(Base):
             u[d[k]] = args[j]
             k += 1
             j += 1
-        print(u)
         self.__dict__.update(u)
 
     def to_dictionary(self):
