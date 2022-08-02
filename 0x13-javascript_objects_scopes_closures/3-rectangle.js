@@ -9,7 +9,7 @@ class Rectangle {
 
   print () {
     const h = this.height;
-    const arr = '#,'.repeat(h).split(',').splice(0, h);
+    const arr = 'X,'.repeat(h).split(',').splice(0, h);
     console.log(arr.map((x) => x.repeat(this.width)).join('\n'));
   }
 }
