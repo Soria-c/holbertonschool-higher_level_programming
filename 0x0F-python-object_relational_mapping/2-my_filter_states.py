@@ -15,7 +15,8 @@ def main():
 
     conn = MySQLdb.connect(**conn_params)
     cursor = conn.cursor()
-    query = "SELECT * FROM states WHERE name={} ORDER BY states.id".format(argv[4])
+    query = """SELECT * FROM states WHERE name={}
+                ORDER BY states.id""".format(argv[4])
     cursor.execute(query)
     for i in list(cursor):
         print(i)
