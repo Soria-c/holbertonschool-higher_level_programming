@@ -24,5 +24,7 @@ if __name__ == '__main__':
     with Session() as session:
         re = session.query(City).order_by(City.id).all()
         for i in re:
+            state = session.query(State).filter_by(id=i.state_id)\
+                .order_By(State.id).first().name
             print(f"""{i.id}: {i.name} ->
-            {session.query(State).filter_by(id=i.state_id).first().name}""")
+            {state}""")
