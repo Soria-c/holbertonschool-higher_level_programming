@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """Script to retrieve from a database"""
-from sys import argv
-import MySQLdb
-
-conn_params = {
-    'user': argv[1],
-    'passwd': argv[2],
-    'db': argv[3],
-    'host': 'localhost',
-    'port': 3306
-}
 
 
 def main():
     """Entry point"""
+    from sys import argv
+    import MySQLdb
+
+    conn_params = {
+        'user': argv[1],
+        'passwd': argv[2],
+        'db': argv[3],
+        'host': 'localhost',
+        'port': 3306
+    }
     conn = MySQLdb.connect(**conn_params)
     cursor = conn.cursor()
     query = "SELECT * FROM states ORDER BY states.id"
