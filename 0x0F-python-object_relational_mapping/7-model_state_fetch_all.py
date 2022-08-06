@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Script that lists all State objects from a given database"""
 
 if __name__ == '__main__':
