@@ -7,8 +7,11 @@ if __name__ == '__main__':
     from sys import argv
 
     kwargs = {
-        'url': f'https://api.github.com/repos/{argv[1]}/{argv[2]}/commits'
+        'url': 'https://api.github.com/repos/{}/{}/commits'
+        .format(argv[2], argv[2])
     }
     response = requests.get(**kwargs)
-    for i in response.json():
-        print(i.get("sha"), i.get("commit").get("author").get('name'))
+    j = response.json()
+    for i in range(10):
+        print("{}: {}".
+              format(j.get("sha"), j.get("commit").get("author").get('name')))
