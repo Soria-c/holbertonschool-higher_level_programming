@@ -5,14 +5,21 @@ import urllib.parse as parse_data
 from sys import argv
 
 
-payload = {
-    'email': argv[2]
-}
+def main():
+    """Entry point"""
 
-kwargs = {
-    'url': argv[1],
-    'data': parse_data.urlencode(payload).encode()
-}
-r = req.Request(**kwargs)
-with req.urlopen(r) as response:
-    print(response.read().decode())
+    payload = {
+        'email': argv[2]
+    }
+
+    kwargs = {
+        'url': argv[1],
+        'data': parse_data.urlencode(payload).encode()
+    }
+    r = req.Request(**kwargs)
+    with req.urlopen(r) as response:
+        print(response.read().decode())
+
+
+if __name__ == '__main__':
+    main()
