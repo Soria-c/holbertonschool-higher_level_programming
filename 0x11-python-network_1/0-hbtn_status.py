@@ -3,7 +3,7 @@
 
 
 def main():
-    """Entry point"""
+    """Entry point of the script"""
     import urllib.request as req
 
     r = req.Request('https://intranet.hbtn.io/status')
