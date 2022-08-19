@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Script to make a get request"""
-import urllib.request as req
 
 
 def main():
     """Entry point"""
+    import urllib.request as req
 
     r = req.Request('https://intranet.hbtn.io/status')
     with req.urlopen(r) as response:
