@@ -2,8 +2,7 @@
 """Script to make a get request"""
 
 
-def main():
-    """Entry point of the script"""
+if __name__ == '__main__':
     import urllib.request as req
 
     r = req.Request('https://intranet.hbtn.io/status')
@@ -13,7 +12,3 @@ def main():
         - type: {type(body)}
         - content: {body}
         - utf8 content: {body.decode()}""")
-
-
-if __name__ == '__main__':
-    main()
