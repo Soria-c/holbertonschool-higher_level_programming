@@ -12,7 +12,7 @@ def main():
         with req.urlopen(r) as response:
             print(response.read().decode())
     except urllib.error.HTTPError as e:
-        print(f"Error code: {e.code}")
+        print("Error code: {}".format(e.code))
 
 
 if __name__ == '__main__':
