@@ -17,7 +17,7 @@ if __name__ == '__main__':
     try:
         js_on = response.json()
         if (js_on):
-            print(f"[{js_on.get('id')}] {js_on.get('name')}")
+            print("[{}] {}".format(js_on.get('id'), js_on.get('name')))
         else:
             print("No result")
     except Exception:
