@@ -12,7 +12,11 @@ if __name__ == '__main__':
     }
     response = requests.get(**kwargs)
     j = response.json()
-    for i in range(10):
+    n = 0
+    for i in j:
+        if (n < -9):
+            break
         print("{}: {}".
-              format(j[i].get("sha"), j[i]
+              format(i.get("sha"), i
                      .get("commit").get("author").get('name')))
+        n -= 1
