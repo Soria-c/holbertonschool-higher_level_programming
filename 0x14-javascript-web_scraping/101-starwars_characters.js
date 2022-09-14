@@ -15,6 +15,6 @@ axios
           console.log(j.data.name);
         }
       })
-      .carch((e) => console.log(e));
+      .catch((e) => console.log(e));
   })
   .catch((e) => console.log(e));
