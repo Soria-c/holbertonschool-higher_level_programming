@@ -8,4 +8,6 @@ axios.get(process.argv[2]).then((r) => {
     if (i.completed) users[i.userId] += 1;
   }
   console.log(users);
+}).catch((e) => {
+  if (e) console.log(e);
 });
