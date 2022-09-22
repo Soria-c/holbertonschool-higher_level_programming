@@ -1,16 +1,16 @@
 window.onload = () => {
 
-$("#add_item").click(() => {
-  $(".my_list").append("<li>Item</li>");
-});
-
-$("#remove_item").click(() => {
-  
-  $(".my_list").children().last().remove();
-})
-
-
-$("#clear_list").click(() => {
-  $(".my_list").text("");
-})
+  $("#btn_translate").click(() => {
+    const value = $("#language_code").val()
+    $.ajax({
+      type: 'GET',
+      url: `https://stefanbohacek.com/hellosalut/?lang=${value}`,
+      success: function(data){
+        $('#hello').text(data.hello);
+      },
+      error: function() {
+        alert('Error for loading API');
+      }
+    });
+  });
 };
